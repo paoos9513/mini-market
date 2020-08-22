@@ -19,6 +19,7 @@ public class MiniMarket {
 
     public void addClients(String typeId, String numberId) throws DayOfExitException,YoungerException{
 
+
         count += 1 ;
         int dayMonth = LocalDate.now().getDayOfMonth();
         Client allInfoClient = new Client(typeId,numberId);
