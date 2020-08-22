@@ -72,7 +72,7 @@ public class Main {
             System.out.println("-- " + motive);
 
         }
-        //System.out.println("IT HAS BEEN REGISTERED CORRECTLY");
+
         System.out.println("Penultimate digit of your "+ typeId.toUpperCase() + " is: " + miniMarket.getNumberId());
         System.out.println("Today is the: " + LocalDate.now().getDayOfMonth() + "th" + " of the month");
         menu();
