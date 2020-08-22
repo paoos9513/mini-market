@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class YoungerException extends Exception{
         private String typeId1;

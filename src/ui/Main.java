@@ -3,6 +3,7 @@ package ui;
 import model.MiniMarket;
 import java.time.LocalDate;
 import java.util.Scanner;
+import exceptions.DayOfExitException;
 
 public class Main {
     Scanner scan = new Scanner(System.in);
@@ -18,9 +19,10 @@ public class Main {
     }
 
     public void menu(){
-
+        System.out.println(" ");
+        System.out.println("***************** " + MiniMarket.getNAME() + " *****************");
         System.out.println("-----------------MENU-----------------");
-        System.out.println("ENTER THE OPTION YOU WANT TO MAKE");
+        System.out.println("------ENTER THE OPTION YOU WANT TO MAKE------");
         System.out.println("(1). REGISTER A PERSON");
         System.out.println("(2). CONSULT NUMBER OF PEOPLE WHO CAME");
         System.out.println("(3) EXIT THE PROGRAM");
@@ -32,7 +34,7 @@ public class Main {
                 optionMenuOne();
                 break;
             case 2:
-                System.out.println("");
+                count();
                 break;
             case 3:
                 scan.close();
@@ -44,24 +46,35 @@ public class Main {
 
     public void optionMenuOne(){
 
-        System.out.println("ENTER THE TYPE OF DOCUMENT");
+        System.out.println("------ENTER THE TYPE OF DOCUMENT------");
+        System.out.println(" ");
         System.out.println("(CC). CITIZENSHIP CARD  \n" +
                 "(CE). FOREIGN CERTIFICATE \n" +
                 "(TI). IDENTITY CARD \n" +
-                "(PP). PASSPORT");
+                "(PP). PASSPORT \n" );
         String typeId = scan.nextLine();
-        System.out.println("ENTER THE DOCUMENT NUMBER");
+        System.out.println(" ");
+        System.out.println("------ENTER THE DOCUMENT NUMBER------");
+        System.out.println(" ");
         String numberId = scan.nextLine();
-        miniMarket.addClients(typeId,numberId);
 
-        System.out.println("IT HAS BEEN REGISTERED CORRECTLY");
-        System.out.println("YOU CAN ENTER");
+        try {
+                miniMarket.addClients(typeId,numberId);
 
-        System.out.println("el dia es: " + LocalDate.now().getDayOfMonth());
-        System.out.println("el ultimo digito de CC ES  " + miniMarket.getNumberId());
+        }catch (DayOfExitException motiveException){
+            System.out.println(" ");
+            System.out.println(motiveException);
+
+        }
+        //System.out.println("IT HAS BEEN REGISTERED CORRECTLY");
+        System.out.println("Penultimate digit of your "+ typeId.toUpperCase() + " is: " + miniMarket.getNumberId());
+        System.out.println("Today is the: " + LocalDate.now().getDayOfMonth() + "th" + " of the month");
         menu();
 
     }
 
-
+    public void count(){
+        System.out.println("The number of people who have tried to enter are: " + miniMarket.getCount());
+        menu();
+    }
 }
