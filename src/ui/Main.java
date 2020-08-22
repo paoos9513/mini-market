@@ -1,10 +1,12 @@
 package ui;
 
+import model.MiniMarket;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     Scanner scan = new Scanner(System.in);
+    MiniMarket miniMarket = new MiniMarket();
     int opt;
 
     public Main(){
@@ -50,11 +52,13 @@ public class Main {
         String typeId = scan.nextLine();
         System.out.println("ENTER THE DOCUMENT NUMBER");
         String numberId = scan.nextLine();
+        miniMarket.addClients(typeId,numberId);
+
         System.out.println("IT HAS BEEN REGISTERED CORRECTLY");
         System.out.println("YOU CAN ENTER");
 
         System.out.println("el dia es: " + LocalDate.now().getDayOfMonth());
-
+        System.out.println("el ultimo digito de CC ES  " + miniMarket.getNumberId());
         menu();
 
     }

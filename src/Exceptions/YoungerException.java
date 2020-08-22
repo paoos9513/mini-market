@@ -1,14 +1,14 @@
 package Exceptions;
 
 public class YoungerException extends Exception{
-        private String typeId;
+        private String typeId1;
 
     public YoungerException(String TI) {
         super("Minors cannot enter");
-        typeId = TI;
+        typeId1 = TI;
     }
 
-    public String getTypeId() {
-        return typeId;
+    public String getTypeId1() {
+        return typeId1;
     }
 }
