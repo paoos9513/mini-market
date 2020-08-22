@@ -7,7 +7,7 @@ import exceptions.YoungerException;
 
 public class MiniMarket {
     private int count = 0;
-    //LocalDate date;
+    LocalDate date;
     private ArrayList<Client> clients;
     private ArrayList<Client> clientsIn;
 
@@ -28,13 +28,13 @@ public class MiniMarket {
 
             throw new YoungerException(typeId);
 
-
         }else if ((dayMonth%2==0) && (getNumberId()%2!=0)){
 
             System.out.println(" ");
             System.out.println("YOU CAN ENTER");
             clientsIn.add(infoClient);
             System.out.println("IT HAS BEEN REGISTERED CORRECTLY");
+
         }else if ((dayMonth%2 != 0) && (getNumberId()%2 == 0)){
             System.out.println(" ");
             System.out.println("YOU CAN ENTER");
@@ -63,4 +63,13 @@ public class MiniMarket {
     public int getCount() {
         return count;
     }
+
+    public ArrayList<Client> getClients() {
+        return clients;
+    }
+
+    public ArrayList<Client> getClientsIn() {
+        return clientsIn;
+    }
+
 }
