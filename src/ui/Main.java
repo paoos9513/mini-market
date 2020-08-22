@@ -1,9 +1,11 @@
 package ui;
 
+
 import model.MiniMarket;
 import java.time.LocalDate;
 import java.util.Scanner;
 import exceptions.DayOfExitException;
+import exceptions.YoungerException;
 
 public class Main {
     Scanner scan = new Scanner(System.in);
@@ -44,26 +46,30 @@ public class Main {
         }
     }
 
-    public void optionMenuOne(){
+    public void optionMenuOne() {
 
         System.out.println("------ENTER THE TYPE OF DOCUMENT------");
         System.out.println(" ");
         System.out.println("(CC). CITIZENSHIP CARD  \n" +
                 "(CE). FOREIGN CERTIFICATE \n" +
                 "(TI). IDENTITY CARD \n" +
-                "(PP). PASSPORT \n" );
+                "(PP). PASSPORT \n");
         String typeId = scan.nextLine();
         System.out.println(" ");
         System.out.println("------ENTER THE DOCUMENT NUMBER------");
         System.out.println(" ");
         String numberId = scan.nextLine();
 
-        try {
-                miniMarket.addClients(typeId,numberId);
+        try{
 
-        }catch (DayOfExitException motiveException){
+            miniMarket.addClients(typeId,numberId);
+
+        }catch(YoungerException motive1){
+            System.out.println("--" + motive1);
+
+        }catch (DayOfExitException motive){
             System.out.println(" ");
-            System.out.println(motiveException);
+            System.out.println("-- " + motive);
 
         }
         //System.out.println("IT HAS BEEN REGISTERED CORRECTLY");

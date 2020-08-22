@@ -13,14 +13,6 @@ public class Client {
         this.numberId = numberId;
     }
 
-    public void setTypeId(String typeId) {
-        this.typeId = typeId;
-    }
-
-    public void setNumberId(String numberId) {
-        this.numberId = numberId;
-    }
-
     public String getTypeId() {
         return typeId;
     }

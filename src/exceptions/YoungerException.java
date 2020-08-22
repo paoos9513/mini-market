@@ -4,7 +4,7 @@ public class YoungerException extends Exception{
         private String typeId1;
 
     public YoungerException(String TI) {
-        super("Minors cannot enter");
+        super("This person is a minor, for this reason you CANNOT ENTER");
         typeId1 = TI;
     }
 
